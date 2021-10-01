@@ -1,28 +1,35 @@
 <?php 
+
 session_start();
-if (isset($_SESSION['hid'])) {
-  header("location:bloodrequest.php");
-}elseif (isset($_SESSION['rid'])) {
-  header("location:sentrequest.php");
-}else{
+
+if (isset($_SESSION['hid'])) 
+{
+  header("location: bloodrequest.php");
+} 
+elseif (isset($_SESSION['rid'])) 
+{
+  header("location: sentrequest.php");
+} 
+else 
+{
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <style>
-body{
-    /* background: url(jastimage/bb1.jpg) no-repeat center; */
-    background-color: blue;
-    background-size: cover;
-    min-height: 0;
-    height: 530px;
+  body{
+      background-color: blue;
+      background-size: cover;
+      min-height: 0;
+      height: 530px;
+    }
+  .login-form{
+      width: calc(100% - 20px);
+      max-height: 650px;
+      max-width: 450px;
+      background-color: white;
   }
-.login-form{
-    width: calc(100% - 20px);
-    max-height: 650px;
-    max-width: 450px;
-    background-color: white;
-}
 </style>
 </head>
 <?php $title="Bloodbank | Register"; ?>
@@ -94,4 +101,7 @@ body{
 <?php require 'footer.php' ?>
 </body>
 </html>
-<?php } ?>
+
+<?php 
+  } 
+?>

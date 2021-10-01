@@ -1,10 +1,17 @@
 <?php 
+
 session_start();
-if (isset($_SESSION['hid'])) {
-  header("location:bloodrequest.php");
-}elseif (isset($_SESSION['rid'])) {
-  header("location:sentrequest.php");
-}else{
+
+if (isset($_SESSION['hid'])) 
+{
+  header("location: bloodrequest.php");
+}
+elseif (isset($_SESSION['rid'])) 
+{
+  header("location: sentrequest.php");
+}
+else
+{
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,4 +84,6 @@ if (isset($_SESSION['hid'])) {
 <?php require 'footer.php' ?>
 </body>
 </html>
-<?php } ?>
+<?php 
+  }
+?>
