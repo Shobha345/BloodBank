@@ -20,18 +20,18 @@ else {
 <?php $title="Bloodbank | My Profile"; ?>
 <?php require 'head.php';?>
 <style>
-    body{
-    background: url(jastimage/bb18.jpg) no-repeat center;
-    background-size: cover;
-    min-height: 0;
-    height: 650px;
-  }
-.login-form{
-    width: calc(100% - 20px);
-    max-height: 650px;
-    max-width: 450px;
-    background-color: white;
-}
+    body {
+		background: url(jastimage/bb18.jpg) no-repeat center;
+		background-size: cover;
+		min-height: 0;
+		height: 650px;
+	}
+	.login-form{
+		width: calc(100% - 20px);
+		max-height: 650px;
+		max-width: 450px;
+		background-color: white;
+	}
 </style>
 <body>
 	<?php require 'header.php'; ?>
@@ -48,15 +48,15 @@ else {
 					</div>
 					<div class="card-body">
 					   <form action="file/updateprofile.php" method="post">
-					   	<label class="text-muted font-weight-bold" class="text-muted font-weight-bold">Hospital Name</label>
+					   	<label class="text-muted font-weight-bold" class="text-muted font-weight-bold">Hospital Name:</label>
 						<input type="text" name="hname" value="<?php echo $row['hname']; ?>" class="form-control mb-3">
-						<label class="text-muted font-weight-bold">Hospital Email</label>
+						<label class="text-muted font-weight-bold">Hospital Email:</label>
 						<input type="email" name="hemail" value="<?php echo $row['hemail']; ?>" class="form-control mb-3">
-						<label class="text-muted font-weight-bold">Hospital Password</label>
+						<label class="text-muted font-weight-bold">Hospital Password:</label>
 						<input type="text" name="hpassword" value="<?php echo $row['hpassword']; ?>" class="form-control mb-3">
-						<label class="text-muted font-weight-bold">Hospital Phone Number</label>
+						<label class="text-muted font-weight-bold">Hospital Phone Number:</label>
 						<input type="text" name="hphone" value="<?php echo $row['hphone']; ?>" class="form-control mb-3">
-						<label class="text-muted font-weight-bold">Hospital City</label>
+						<label class="text-muted font-weight-bold">Hospital City:</label>
 						<input type="text" name="hcity" value="<?php echo $row['hcity']; ?>" class="form-control mb-3">
 						<input type="submit" name="update" class="btn btn-block btn-primary" value="Update">
 					   </form>
