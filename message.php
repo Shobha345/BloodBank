@@ -10,11 +10,10 @@
 		</div>
 	<?php }?>
 </div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-$( document ).ready(function(){
-	$('#message').fadeIn('slow', function(){
-		$('#message').delay(5000).fadeOut(); 
-	});
+jQuery(function ($) {
+    $('#message').fadeIn('slow', function () {
+        $('#message').delay(5000).fadeOut();
+    });
 });
 </script>
