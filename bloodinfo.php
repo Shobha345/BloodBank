@@ -1,11 +1,13 @@
-<?php 
-  require 'file/connection.php';
-  session_start();
-  if(!isset($_SESSION['hid']))
-  {
-  header('location:login.php');
-  }
-  else {
+<?php
+require_once __DIR__ . '/src/autoload.php';
+
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInHospital()) {
+    header('Location: /login.php');
+    exit();
+}
+
+require 'file/connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,4 +103,3 @@
 </div>
 <?php require 'footer.php' ?>
 </body>
-<?php } ?>

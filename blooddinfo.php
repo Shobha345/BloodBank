@@ -2,7 +2,7 @@
 require_once __DIR__ . '/src/autoload.php';
 
 $userUtility = \App\Utility\UserUtility::getInstance();
-if (!$userUtility->isLoggedIn()) {
+if (!$userUtility->isLoggedInRecevier()) {
     header('Location: /login.php');
     exit();
 }
