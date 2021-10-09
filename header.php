@@ -26,14 +26,13 @@
 
         </ul>
         <?php }  else { ?>
-                    <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link btn btn-light" href="login.php">Login</a>
+                <a class="nav-link btn btn-light" href="/login.php" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn btn-light" href="register.php">Register</a>
+                <a class="nav-link btn btn-light" href="/register.php">Register</a>
             </li>
-
         </ul>
 
         <?php } ?>

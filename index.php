@@ -10,7 +10,8 @@
     <?php require 'header.php'; ?>
 
     <div class="container cont">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login modal (Demo)</button>
+        <div class="text-center">Later for login page:</div>
+        <?php require 'templates/loginform.php'; ?>
 
         <?php require 'message.php'; ?>
 
@@ -108,6 +109,8 @@
     </div>
 
     <?php require 'footer.php'; ?>
-    <?php require __DIR__. '/templates/loginform-modal.php'; ?>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+        <?php $disableModalClose = false; require __DIR__ . '/templates/loginform.php'; ?>
+    </div>
 </body>
 </html>
