@@ -11,7 +11,7 @@
 
     <div class="container cont">
         <div class="text-center">Later for login page:</div>
-        <?php require 'templates/loginform.php'; ?>
+        <?php $pills = 'page'; require 'templates/loginform.php'; ?>
 
         <?php require 'message.php'; ?>
 
@@ -110,7 +110,7 @@
 
     <?php require 'footer.php'; ?>
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
-        <?php $disableModalClose = false; require __DIR__ . '/templates/loginform.php'; ?>
+        <?php $pills = 'modal'; require __DIR__ . '/templates/loginform.php'; ?>
     </div>
 </body>
 </html>

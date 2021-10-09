@@ -1,3 +1,6 @@
+<?php
+$pills = (!empty($pills) ? $pills : 'modal');
+?>
 <div class="modal-dialog modal-md modal-dialog-centered">
     <div class="modal-content">
         <div class="modal-header bg-light border-0 p-1"></div>
@@ -8,19 +11,19 @@
                         <h5 class="modal-title">Login</h5>
                     </div>
                     <div class="col">
-                        <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills justify-content-center" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="pills-hospitals-tab" data-toggle="pill" href="#pills-hospitals" role="tab"
-                                   aria-controls="pills-hospitals" aria-selected="true">Hospitals</a>
+                                <a class="nav-link active" id="pills-<?php echo $pills; ?>-hospitals-tab" data-toggle="pill" href="#pills-<?php echo $pills; ?>-hospitals" role="tab"
+                                   aria-controls="pills-<?php echo $pills; ?>-hospitals" aria-selected="true">Hospitals</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="pills-receivers-tab" data-toggle="pill" href="#pills-receivers" role="tab"
-                                   aria-controls="pills-receivers" aria-selected="false">User</a>
+                                <a class="nav-link" id="pills-<?php echo $pills; ?>-receivers-tab" data-toggle="pill" href="#pills-<?php echo $pills; ?>-receivers" role="tab"
+                                   aria-controls="pills-<?php echo $pills; ?>-receivers" aria-selected="false">User</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-end">
-                        <?php if (isset($disableModalClose) && $disableModalClose === false) { ?>
+                        <?php if ($pills === 'modal') { ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -30,7 +33,7 @@
             </div>
 
             <div class="tab-content px-3">
-                <div class="tab-pane fade show active" id="pills-hospitals" role="tabpanel">
+                <div class="tab-pane fade show active" id="pills-<?php echo $pills; ?>-hospitals" role="tabpanel">
                     <form action="/hospitalpage.php" class="login-form" method="post">
                         <label class="sr-only" for="hemail">Hospital E-Mail</label>
                         <div class="input-group mb-2">
@@ -52,7 +55,7 @@
                     </form>
                 </div>
 
-                <div class="tab-pane fade" id="pills-receivers" role="tabpanel">
+                <div class="tab-pane fade" id="pills-<?php echo $pills; ?>-receivers" role="tabpanel">
                     <form action="/userpage.php" class="login-form" method="post">
                         <label class="sr-only" for="remail">User E-Mail</label>
                         <div class="input-group mb-2">
