@@ -13,11 +13,6 @@ $db_username = 'root';
 $db_password = '';
 $db_name = 'bloodbank';
 
-$db_host = 'global-db';
-$db_username = 'root';
-$db_password = 'root';
-$db_name = 'hacktoberfest_bloodbank';
-
 $database = \App\Utility\DatabaseUtility::getInstance();
 $database->connect('mysql', $db_host, $db_username, $db_password, $db_name);
 
