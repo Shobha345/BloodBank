@@ -27,9 +27,7 @@ $result = mysqli_query($conn, $sql);
     max-width: 450px;
     background-color: white;
 }
-/* https://en.wikipedia.org/wiki/Zero-width_space */
-/* https://de.wikipedia.org/wiki/Breitenloses_Leerzeichen */
-.footer {​​
+.footer {
 position: fixed;
 left: 0;
 bottom: 0;
@@ -37,7 +35,7 @@ width: 100%;
 background-color: white;
 color: black;
 text-align: center;
-}​​
+}
 </style>
 <?php $title="Bloodbank | Blood Donate"; ?>
 <?php require 'head.php'; ?>
