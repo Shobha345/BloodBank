@@ -10,8 +10,9 @@
     <?php require 'header.php'; ?>
 
     <div class="container cont">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login modal (Demo)</button>
 
-   <?php require 'message.php'; ?>
+        <?php require 'message.php'; ?>
 
         <div class="row justify-content-center">
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 col-xs-6 mb-5" style="width: 60%">
@@ -107,6 +108,6 @@
     </div>
 
     <?php require 'footer.php'; ?>
-
+    <?php require __DIR__. '/templates/loginform-modal.php'; ?>
 </body>
 </html>
