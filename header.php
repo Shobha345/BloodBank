@@ -12,7 +12,7 @@
         <?php if (isset($_SESSION['hid'])) { ?>
             <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link btn btn-light" href="hospitalpage.html">HOME</a>
+                <a class="nav-link btn btn-light" href="/hospitalpage.php">HOME</a>
             </li>
            
 
@@ -20,7 +20,7 @@
         <?php } elseif (isset($_SESSION['rid'])) { ?>
             <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link btn btn-light" href="Userpage.html">HOME</a>
+                <a class="nav-link btn btn-light" href="/userpage.php">HOME</a>
             </li>
            
 

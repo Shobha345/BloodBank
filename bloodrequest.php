@@ -1,16 +1,17 @@
-<?php 
-require 'file/connection.php'; 
-session_start();
-  if(!isset($_SESSION['hid']))
-  {
-  header('location:login.php');
-  }
-  else {
-    $hid = $_SESSION['hid'];
-    $sql = "select bloodrequest.*, receivers.* from bloodrequest, receivers where hid='$hid' && bloodrequest.rid=receivers.id";
-    $result = mysqli_query($conn, $sql);
-?>
+<?php
+require_once __DIR__ . '/src/autoload.php';
 
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInHospital()) {
+    header('Location: /login.php');
+    exit();
+}
+
+require 'file/connection.php';
+$hid = $_SESSION['hid'];
+$sql = "select bloodrequest.*, receivers.* from bloodrequest, receivers where hid='$hid' && bloodrequest.rid=receivers.id";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html>
 <?php $title="Bloodbank | Blood Requests"; ?>
@@ -86,4 +87,3 @@ session_start();
     <?php require 'footer.php'; ?>
 </body>
 </html>
-<?php } ?>
