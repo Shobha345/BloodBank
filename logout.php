@@ -1,6 +1,8 @@
 <?php
-    session_start();
-    session_unset();
-    session_destroy();
-    header( "location:index.php");
-?>
+// TODO deprecated use /index.php?logout=1;
+require_once __DIR__ . '/src/autoload.php';
+
+$userUtility = \App\Utility\UserUtility::getInstance();
+$userUtility->logout();
+header( 'Location: /index.php');
+exit();

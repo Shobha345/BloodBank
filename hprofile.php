@@ -1,20 +1,18 @@
 <?php
-require 'file/connection.php';
-session_start();
-if(!isset($_SESSION['hid']))
-{
-  header('location:login.php');
-}
-else {
-	if(isset($_SESSION['hid'])){
-		$id=$_SESSION['hid'];
-		$sql = "SELECT * FROM hospitals WHERE id='$id'";
-		$result = mysqli_query($conn, $sql);
-		$row = mysqli_fetch_array($result);
-	}
-}
-?>
+require_once __DIR__ . '/src/autoload.php';
 
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInHospital()) {
+    header('Location: /login.php');
+    exit();
+}
+
+require 'file/connection.php';
+$id=$_SESSION['hid'];
+$sql = "SELECT * FROM hospitals WHERE id='$id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html>
 <?php $title="Bloodbank | My Profile"; ?>
@@ -61,7 +59,7 @@ else {
 						<input type="submit" name="update" class="btn btn-block btn-primary" value="Update">
 					   </form>
 					</div>
-					<a href="hospitalpage.html" class="text-center">Cancel</a><br>
+					<a href="/hospitalpage.php" class="text-center">Cancel</a><br>
 				</div>
 			</div>
 		</div>

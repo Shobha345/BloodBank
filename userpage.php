@@ -1,3 +1,12 @@
+<?php
+require_once __DIR__ . '/src/autoload.php';
+
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInRecevier()) {
+    header('Location: /login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet" />
-    <title>Hospital/Clinic</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>User page</title>
     <style>
         * {
             margin: 0;
@@ -15,16 +26,13 @@
         
         body {
             font-family: "Dosis", sans-serif;
-            width: 100%;
-            height: 100vh;
-            background: url(image/pic\ 4.jpg) no-repeat center;
-            background-size: cover;
+            background-color: black;
         }
         
         .navbar {
             width: 300px;
             height: 100%;
-            background-color: rgb(0, 4, 8);
+            background-color: black;
             position: fixed;
             top: 0;
             right: -300px;
@@ -43,7 +51,7 @@
             width: 35px;
             height: 30px;
             position: fixed;
-            top: 50px;
+            top: 20px;
             right: 50px;
             cursor: pointer;
             display: flex;
@@ -95,7 +103,7 @@
             content: "";
             width: 100%;
             height: 2px;
-            background-color: rgb(80, 149, 184);
+            background-color: rgb(203, 203, 219);
             position: absolute;
             right: 0;
             transform: scalex(0);
@@ -122,41 +130,57 @@
 
 <body>
     <nav>
-        <div class="container">
-            <h1 style="border:5px solid black; font-size: 35px; background-color:#d5f4e6; text-transform: uppercase; text-align: center; border-radius:15px; margin: 0px 500px 0px 500px; padding: 5px;">Hospital/Clinic</h1>
+        <div class="container text-center">
+            <h1 style="border:5px solid black; font-size: 35px; background-color:white; text-transform: uppercase; text-align: center; border-radius:15px; display: inline-block; margin: 0 auto; padding: 5px;">User: <?php echo $_SESSION['rname']; ?></h1>
         </div>
     </nav>
-    <div class="container">
-        <nav class="navbar">
-            <div class="hamburger-menu">
-                <div class="line line-1"></div>
-                <div class="line line-2"></div>
-                <div class="line line-3"></div>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/Userbbms3.png " alt="Los Angeles " width="100 " height="100 ">
             </div>
 
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="hprofile.php" class="nav-link">My Account</a>
+        </div>
+
+    </div>
+    <div class="container ">
+        <nav class="navbar ">
+            <div class="hamburger-menu ">
+                <div class="line line-1 "></div>
+                <div class="line line-2 "></div>
+                <div class="line line-3 "></div>
+            </div>
+
+            <ul class="nav-list ">
+                <li class="nav-item ">
+                    <a href="rprofile.php " class="nav-link ">My Account</a>
                 </li>
-                <li class="nav-item">
-                    <a href="bloodinfo.php" class="nav-link">Stock of Blood</a>
+                <li class="nav-item ">
+                    <a href="blooddinfo.php " class="nav-link ">Blood info</a>
                 </li>
-                <li class="nav-item">
-                    <a href="bloodrequest.php" class="nav-link">Blood requests</a>
+                <li class="nav-item ">
+                    <a href="abs.php " class="nav-link ">Blood available</a>
                 </li>
-                <li class="nav-item">
-                    <a href="deleteit.php" class="nav-link">Need blood</a>
+                <li class="nav-item ">
+                    <a href="sentrequest.php " class="nav-link ">Status of request</a>
                 </li>
-                <li class="nav-item">
-                    <a href="sentrequestd.php" class="nav-link">Status of your Blood request</a>
+
+                <li class="nav-item ">
+                    <a href="blooddonate.php " class="nav-link ">Blood donation request</a>
                 </li>
-                <li class="nav-item">
-                    <a href="logout.php" class="nav-link">LogOut</a>
+                <li class="nav-item ">
+                    <a href="logout.php " class="nav-link ">LogOut</a>
                 </li>
             </ul>
         </nav>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js "></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js "></script>
 </body>
 
 </html>

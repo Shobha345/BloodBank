@@ -1,5 +1,12 @@
-<?php 
-session_start();
+<?php
+require_once __DIR__ . '/src/autoload.php';
+
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInRecevier()) {
+    header('Location: /login.php');
+    exit();
+}
+
 require 'file/connection.php';
 if(isset($_GET['search'])){
     $searchKey = $_GET['search'];
@@ -9,7 +16,6 @@ if(isset($_GET['search'])){
 }
 $result = mysqli_query ($conn, $sql);
 ?>
-
 <!DOCTYPE html>
 <html>
 <?php $title="Bloodbank | Available Blood Samples"; ?>

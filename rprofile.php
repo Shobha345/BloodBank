@@ -1,20 +1,18 @@
 <?php
-require 'file/connection.php';
-session_start();
-if(!isset($_SESSION['rid']))
-{
-  header('location:login.php');
-}
-else {
-	if(isset($_SESSION['rid'])){
-		$id=$_SESSION['rid'];
-		$sql = "SELECT * FROM receivers WHERE id='$id'";
-		$result = mysqli_query($conn, $sql);
-		$row = mysqli_fetch_array($result);
-	}
-}
-?>
+require_once __DIR__ . '/src/autoload.php';
 
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInRecevier()) {
+    header('Location: /login.php');
+    exit();
+}
+
+require 'file/connection.php';
+$id=$_SESSION['rid'];
+$sql = "SELECT * FROM receivers WHERE id='$id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html>
 <?php $title="Bloodbank | Receiver Profile"; ?>
@@ -73,7 +71,7 @@ else {
 						<input type="submit" name="update" class="btn btn-block btn-primary" value="Update">
 					   </form>
 					</div>
-					<a href="Userpage.html" class="text-center">Cancel</a><br>
+					<a href="/userpage.php" class="text-center">Cancel</a><br>
 				</div>
 			</div>
 		</div>

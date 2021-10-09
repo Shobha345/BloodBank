@@ -1,17 +1,19 @@
-<?php 
+<?php
+require_once __DIR__ . '/src/autoload.php';
 
-session_start();
+$userUtility = \App\Utility\UserUtility::getInstance();
 
-if (isset($_SESSION['hid'])) 
-{
-  header("location: bloodrequest.php");
+// TODO redirect to user index page if loggend in or clear session and show login form
+if ($userUtility->isLoggedInHospital()) {
+    header('Location: hospitalpage.php');
+// TODO old url: header('Location: /bloodrequest.php');
+    exit();
+} else if ($userUtility->isLoggedInRecevier()) {
+    header('Location: userpage.php');
+// TODO old url: header('Location: /sentrequest.php');
+    exit();
 }
-elseif (isset($_SESSION['rid'])) 
-{
-  header("location: sentrequest.php");
-}
-else
-{
+$userUtility->clearSession();
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +57,7 @@ else
 
     <div class="tab-content">
        <div class="tab-pane container active" id="hospitals">
-        <form action="file/hospitalLogin.php" class="login-form" method="post">
+        <form action="/hospitalpage.php" class="login-form" method="post">
           <label class="text-muted font-weight-bold" class="text-muted font-weight-bold">Hospital Email</label>
           <input type="email" name="hemail" placeholder="Hospital Email" class="form-control mb-4">
           <label class="text-muted font-weight-bold" class="text-muted font-weight-bold">Hospital Password</label>
@@ -66,7 +68,7 @@ else
 
 
       <div class="tab-pane container fade" id="receivers">
-         <form action="file/receiverLogin.php" class="login-form" method="post">
+         <form action="/userpage.php" class="login-form" method="post">
           <label class="text-muted font-weight-bold" class="text-muted font-weight-bold">User Email</label>
           <input type="email" name="remail" placeholder="User Email" class="form-control mb-4">
           <label class="text-muted font-weight-bold" class="text-muted font-weight-bold">User Password</label>
@@ -84,6 +86,3 @@ else
 <?php require 'footer.php' ?>
 </body>
 </html>
-<?php 
-  }
-?>

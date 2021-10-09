@@ -1,16 +1,17 @@
-<?php 
-require 'file/connection.php'; 
-session_start();
-  if(!isset($_SESSION['rid']))
-  {
-  header('location:login.php');
-  }
-  else {
-    $rid = $_SESSION['rid'];
-    $sql = "SELECT blooddonate.*, hospitals.* from blooddonate, hospitals where rid='$rid' && blooddonate.hid=hospitals.id";
-    $result = mysqli_query($conn, $sql);
-?>
+<?php
+require_once __DIR__ . '/src/autoload.php';
 
+$userUtility = \App\Utility\UserUtility::getInstance();
+if (!$userUtility->isLoggedInRecevier()) {
+    header('Location: /login.php');
+    exit();
+}
+
+require 'file/connection.php';
+$rid = $_SESSION['rid'];
+$sql = "SELECT blooddonate.*, hospitals.* from blooddonate, hospitals where rid='$rid' && blooddonate.hid=hospitals.id";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -26,6 +27,8 @@ session_start();
     max-width: 450px;
     background-color: white;
 }
+/* https://en.wikipedia.org/wiki/Zero-width_space */
+/* https://de.wikipedia.org/wiki/Breitenloses_Leerzeichen */
 .footer {​​
 position: fixed;
 left: 0;
@@ -96,4 +99,3 @@ text-align: center;
 <?php require 'footer.php'; ?>
 </body>
 </html>
-<?php } ?>

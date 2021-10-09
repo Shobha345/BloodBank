@@ -56,7 +56,7 @@
                 <option>O+</option>
           </select><br>
           <input type="submit" name="add" value="Add" class="btn btn-primary btn-block"><br>
-          <a href="hospitalpage.html" class="text-centre" >Cancel</a><br>
+          <a href="/hospitalpage.php" class="text-centre" >Cancel</a><br>
         </form>
          </div>
        </div>

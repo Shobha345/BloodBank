@@ -1,7 +1,6 @@
-<?php 
-    session_start();
-
-    ?>
+<?php
+require_once __DIR__ . '/src/autoload.php';
+?>
 <!DOCTYPE html>
 <html>
 <?php $title="Bloodbank | index page"; ?>
