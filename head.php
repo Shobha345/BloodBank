@@ -10,7 +10,15 @@
     <script type="text/javascript" src="../library/js/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <?php
+    // Font Awesome kit has a fixed domain
+    if (getenv('APP_ENV') === 'dev') { ?>
+        <script src="/assets/js/fontawesome-all.js"></script>
+    <?php } else { ?>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <?php } ?>
+
     <link href="css/style.css" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/jpeg" href="image/favicon.jpg">
 </head>

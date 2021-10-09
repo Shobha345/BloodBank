@@ -10,8 +10,10 @@
     <?php require 'header.php'; ?>
 
     <div class="container cont">
+        <div class="text-center">Later for login page:</div>
+        <?php $pills = 'page'; require 'templates/loginform.php'; ?>
 
-   <?php require 'message.php'; ?>
+        <?php require 'message.php'; ?>
 
         <div class="row justify-content-center">
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 col-xs-6 mb-5" style="width: 60%">
@@ -107,6 +109,8 @@
     </div>
 
     <?php require 'footer.php'; ?>
-
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+        <?php $pills = 'modal'; require __DIR__ . '/templates/loginform.php'; ?>
+    </div>
 </body>
 </html>
