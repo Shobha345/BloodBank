@@ -37,7 +37,7 @@
             <label class="sr-only" for="hpassword">Hospital Password</label>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-user"></i></div>
+                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
                 </div>
                 <input type="password" class="form-control" id="hpassword" name="hpassword" placeholder="Hospital Password">
             </div>
@@ -59,7 +59,7 @@
             <label class="sr-only" for="rpassword">User Password</label>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-user"></i></div>
+                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
                 </div>
                 <input type="password" class="form-control" id="rpassword" name="rpassword" placeholder="User Password">
             </div>
